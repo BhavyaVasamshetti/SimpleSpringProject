@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Define the bean for BusTravel -->
+    <bean id="busTravel" class="springpackage.BusTravel">
+        <constructor-arg value="1000"/>
+        <constructor-arg value="8"/>
+    </bean>
+
+    <!-- Define the bean for TrainTravel -->
+    <bean id="trainTravel" class="springpackage.TrainTravel">
+        <constructor-arg value="500"/>
+        <constructor-arg value="6"/>
+    </bean>
+
+    <!-- Define the bean for FlightTravel -->
+    <bean id="flightTravel" class="springpackage.FlightTravel">
+        <constructor-arg value="20000"/>
+        <constructor-arg value="2"/>
+    </bean>
+
+    <!-- Define the bean for TravelBookingService with dependency injection -->
+    <bean id="travelBookingService" class="springpackage.TravelBookingService">
+        <constructor-arg ref="flightTravel"/>
+
+
+    </bean>
+</beans>
